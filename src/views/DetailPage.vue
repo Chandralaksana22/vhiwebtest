@@ -11,7 +11,7 @@
             <h5 class="card-title">{{users.data.first_name}} {{users.data.last_name}}</h5>
             <p class="card-text">{{users.support.text}}</p>
             <p class="card-text"><small class="text-muted">{{users.data.email}}</small></p>
-            <div class=" d-flex justify-content-center"><router-link to="/user"><button type="button" class="btn btn-danger">Kembali</button></router-link></div>
+            <div class="d-flex justify-content-center"><router-link to="/user"><button type="button" class="btn btn-danger">Kembali</button></router-link></div>
         </div>
     </div>
     </div>
