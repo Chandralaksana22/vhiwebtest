@@ -23,6 +23,9 @@
               <input type="password" class="form-control" v-model="login.password" >
             </div>
             <button type="submit" class="btn btn-info text-white w-100">Submit</button>
+             <div v-if="showError" id="error" class="mt-3">
+                <b-alert variant="danger" show>Email atau Kata Sandi Salah</b-alert>
+              </div>
           </form>
         </div>
       </div>
@@ -38,9 +41,10 @@ export default {
     data() {
       return {
        login:{
-         email: "",
+        email: "",
         password: "",
-       }
+       },
+        showError: false
       };
     },
     methods:{
@@ -51,9 +55,11 @@ export default {
           if (response.status==200){
             localStorage.setItem("userLogin",JSON.stringify(response.data))
             this.$router.push({name:"user"})
-          }
+            this.showError = false
+          } 
         } catch (error) {
           console.error(error);
+          this.showError = true
         }
       }
     },
